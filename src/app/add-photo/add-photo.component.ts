@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhotosService, PhotoInfo } from '../photos.service';
 
 @Component({
   selector: 'app-add-photo',
@@ -9,12 +10,12 @@ export class AddPhotoComponent implements OnInit {
   url:string = null;
   description:string = null;
 
-  constructor() { }
+  constructor(private photosService: PhotosService) { }
 
   ngOnInit() {
   }
 
   onSharePhoto() {
-    console.log('Share' + this.url + this.description);
+    console.log('Share : ' + this.url + " : " + this.description);
   }
 }

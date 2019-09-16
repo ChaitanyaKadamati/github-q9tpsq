@@ -9,16 +9,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AddPhotoComponent } from './add-photo/add-photo.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PhotosPresenterComponent,
-    WelcomeComponent,
-    AddPhotoComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [ AppComponent, PhotosPresenterComponent, WelcomeComponent,
+    AddPhotoComponent ],
+  imports: [ BrowserModule, AppRoutingModule, FormsModule ],
   providers: [],
   bootstrap: [AppComponent]
 })
