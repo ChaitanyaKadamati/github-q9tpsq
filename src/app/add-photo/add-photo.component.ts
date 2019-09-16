@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-photo.component.css']
 })
 export class AddPhotoComponent implements OnInit {
+  url:string = null;
+  description:string = null;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSharePhoto() {
+    console.log('Share' + this.url + this.description);
+  }
 }
