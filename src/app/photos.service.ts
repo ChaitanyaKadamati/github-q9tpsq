@@ -1,14 +1,13 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PhotosService implements OnInit {
-  Photos: Array<PhotoInfo> = [];
+export class PhotosService {
+  Photos: Array<PhotoInfo> = null;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.Photos = new Array<PhotoInfo>();
     const photoInfo1 = new PhotoInfo('https://images.fineartamerica.com/images-medium-large-5/nice-landscape-summer-boon-mee.jpg',
       'Nice Landscape');
     const photoInfo2 = new PhotoInfo('https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/fetch/Category_Pages/Outdoor/Garden_Center/fruit-trees.jpg',
@@ -19,18 +18,17 @@ export class PhotosService implements OnInit {
     this.Photos.push(photoInfo1);
     this.Photos.push(photoInfo2);
     this.Photos.push(photoInfo3);
-    console.log('Infoi:' + photoInfo1);
   }
 
   getPhotos(): Array<PhotoInfo> {
     const result: Array<PhotoInfo> = [];
     this.Photos.map(x => result.push(new PhotoInfo(x.url, x.description)));
-    console.log(this.Photos[0]);
     return result;
   }
 
-  addPhoto(args: PhotoInfo) {
+  addPhoto(args: PhotoInfo) {    
     const param: PhotoInfo = new PhotoInfo(args.url, args.description);
+    console.log(param);
     this.Photos.push(param);
   }
 }

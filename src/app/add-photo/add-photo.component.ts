@@ -16,6 +16,7 @@ export class AddPhotoComponent implements OnInit {
   }
 
   onSharePhoto() {
-    console.log('Share : ' + this.url + " : " + this.description);
+    const args: PhotoInfo = new PhotoInfo(this.url, this.description);
+    this.photosService.addPhoto(args);
   }
 }
