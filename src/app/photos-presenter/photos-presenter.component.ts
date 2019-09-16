@@ -15,4 +15,7 @@ export class PhotosPresenterComponent implements OnInit {
     this.photos = this.photosService.getPhotos();
   }
 
+  update() {
+    this.photos = this.photosService.getPhotos();
+  }
 }

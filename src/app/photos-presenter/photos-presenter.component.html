@@ -1,10 +1,10 @@
+<button (click)="update()">Update</button>
 <div class="row">
     <div *ngFor="let photo of photos" class="column" >
         <img id="myImg" [src]='photo.url'>
         <p>{{photo.description}}</p>
     </div>
 </div>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <span class="close">&times;</span>
