@@ -19,11 +19,13 @@ export class PhotosService implements OnInit {
     this.Photos.push(photoInfo1);
     this.Photos.push(photoInfo2);
     this.Photos.push(photoInfo3);
+    console.log('Infoi:' + photoInfo1);
   }
 
   getPhotos(): Array<PhotoInfo> {
     const result: Array<PhotoInfo> = [];
-    this.Photos.map(x => result.push(new PhotoInfo(x.url, x.description)));console.log(...this.Photos);
+    this.Photos.map(x => result.push(new PhotoInfo(x.url, x.description)));
+    console.log(this.Photos[0]);
     return result;
   }
 
