@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { PhotosService, PhotoInfo } from '../photos.service';
 
 @Component({
@@ -10,7 +12,7 @@ export class AddPhotoComponent implements OnInit {
   url:string = null;
   description:string = null;
 
-  constructor(private photosService: PhotosService) { }
+  constructor(private photosService: PhotosService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -18,5 +20,6 @@ export class AddPhotoComponent implements OnInit {
   onSharePhoto() {
     const args: PhotoInfo = new PhotoInfo(this.url, this.description);
     this.photosService.addPhoto(args);
+    this.router.navigate(['']);
   }
 }

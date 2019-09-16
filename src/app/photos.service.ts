@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-
+import {Subject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class PhotosService {
-  Photos: Array<PhotoInfo> = null;
+  private Photos: Array<PhotoInfo> = null;
+  private changeNotifier: Subject<any> = null;
 
   constructor() {
+    this.changeNotifier= new Subject<any>();
+    
     this.Photos = new Array<PhotoInfo>();
     const photoInfo1 = new PhotoInfo('https://images.fineartamerica.com/images-medium-large-5/nice-landscape-summer-boon-mee.jpg',
       'Nice Landscape');
@@ -23,13 +26,14 @@ export class PhotosService {
   getPhotos(): Array<PhotoInfo> {
     const result: Array<PhotoInfo> = [];
     this.Photos.map(x => result.push(new PhotoInfo(x.url, x.description)));
+    console.log(this.Photos.length);
     return result;
   }
 
-  addPhoto(args: PhotoInfo) {    
+  addPhoto(args: PhotoInfo) {
     const param: PhotoInfo = new PhotoInfo(args.url, args.description);
-    console.log(param);
     this.Photos.push(param);
+    console.log(this.Photos.length);
   }
 }
 
